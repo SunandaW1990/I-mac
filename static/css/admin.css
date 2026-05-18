@@ -1,13 +1,13 @@
 #header {
     height:50px;
-    background:#001c83;
-    color : #ffffff;
+    background:#181288;
+    color : #d8d8d8;
 }
 #branding h1 {
     color :#fff;
 }
 a:link, a:visited {
-    color: #1b5fc5;
+    color: #2d4363;
 }
 div.breadcrumbs {
     background: #2d4363;
@@ -15,14 +15,14 @@ div.breadcrumbs {
 }
 
 .module h2, .module caption, .inline-group h2 {
-    background: #ce381a;
+    background: #608feb;
 }
 
 .button, input[type=submit], input[type=button], .submit-row input, a.button {
-    background: #34169f;
+    background: #9f7968;
     color:#ffffff;
 }
 
-/* .brands {
+.brands {
     margin-left: 15px;
-} */
+}
