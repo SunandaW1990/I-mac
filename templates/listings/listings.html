@@ -36,7 +36,6 @@
     <section id="listings" class="py-4">
     <div class="container">
         <div class="row">
-        </div>
         {% if listings %} 
         <!-- Listing 1 -->
         {% for listing in listings %}
@@ -97,6 +96,7 @@
             <h2>No Clinic Available !</h2>
         </div>
         {% endif %} 
+    </div>
 
         {% if listings.has_other_pages %}
         <div class="row">
