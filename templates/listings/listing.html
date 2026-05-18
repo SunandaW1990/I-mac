@@ -162,11 +162,9 @@
             <!-- Description -->
             <div class="row mb-5">
               <div class="col-md-12">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Mollitia recusandae esse reiciendis officia omnis non rerum
-                dicta cupiditate nostrum molestias deserunt aut minus inventore
-                animi atque, consequuntur ad fugit. Possimus culpa blanditiis
-                repellendus ipsa similique ullam, natus error dolor harum.
+                {% comment %} description {% endcomment %}
+                {{ listing.description }}
+                
               </div>
             </div>
           </div>
@@ -174,12 +172,12 @@
             <div class="card mb-3">
               <img
                 class="card-img-top"
-                src="assets/img/doctors/kyle.jpg"
+                src="{{ listing.doctor.photo.url }}"
                 alt="Seller of the month"
               />
               <div class="card-body">
                 <h5 class="card-title">Medical Practitioner</h5>
-                <h6 class="text-secondary">Kyle Chan</h6>
+                <h6 class="text-secondary"> {{ listing.doctor.name }}</h6>
               </div>
             </div>
             <button
