@@ -7,7 +7,7 @@ from .choices import district_choices, room_type_choices, rooms_choices
 
 # Windsurf: Refactor | Explain | Generate Docstring | X
 def listings(request):
-    listings = Listing.objects.filter(is_published=True).order_by
+    listings = Listing.objects.filter(is_published=True).order_by('-list_date')
     paginator = Paginator(listings, 3)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
@@ -41,5 +41,11 @@ def search(request):
     paginator = Paginator(queryset_list, 3)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
-    context = {"listings": paged_listings, "district_choices":district_choices, "room_type_choices":room_type_choices, "rooms_choices":rooms_choices, "values":request.GET }
+    context = {
+        "listings": paged_listings, 
+        "district_choices":district_choices, 
+        "room_type_choices":room_type_choices, 
+        "rooms_choices":rooms_choices, 
+        "values":request.GET,
+    }
     return render(request, "listings/search.html", context)

@@ -1,11 +1,15 @@
 from django.shortcuts import render     
 from listings.models import Listing
-from listings.choices import district_choices , room_type_choices, rooms_choices
+from doctors.models import Doctor
+from listings.choices import district_choices, room_type_choices, rooms_choices
 
 def index(request):
     listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:3]
-    context = {"listings": listings , "district_choices":district_choices, "room_type_choices":room_type_choices, "rooms_choices":rooms_choices }
+    context = { "listings": listings, "district_choices":district_choices, "room_type_choices":room_type_choices, "rooms_choices":rooms_choices }
     return render(request, "pages/index.html", context)
 
 def about(request):
-    return render(request, "pages/about.html")
+    doctors = Doctor.objects.order_by('-hire_date')[:3]
+    mvp_doctors = Doctor.objects.filter(is_mvp=True)
+    context = {"doctors": doctors}
+    return render(request, "pages/about.html" , context)

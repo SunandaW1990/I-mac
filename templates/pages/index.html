@@ -14,7 +14,7 @@
             </p>
             <div class="search">
               {% comment %} "search.html" {% endcomment %}
-              <form action= {% url "listings:search" %}>
+              <form action= {% url 'listings:search' %}>
 
                 <!-- Form Row 1 -->
                 <div class="form-row">
@@ -43,7 +43,7 @@
                   </div>
                   <div class="col-md-4 mb-3">
                     <label class="sr-only">Rooms</label>
-                    <select name=" rooms " class="form-control">
+                    <select name="rooms" class="form-control">
                       <option selected="true" disabled="disabled">
                         Rooms (All)
                       </option>
@@ -53,7 +53,7 @@
                     </select>
                   </div>
                   <div class="col-md-4 mb-3">
-                    <select name=" room_type " class="form-control" id="type">
+                    <select name="room_type" class="form-control" id="type">
                       <option selected="true" disabled="disabled">
                         Room Type (All)
                       </option>
@@ -72,7 +72,7 @@
         </div>
       </div>
     </section>
-
+    
     <!-- Listings -->
     <section id="listings" class="py-5">
       <div class="container">
@@ -86,7 +86,7 @@
               {% comment %} "assets/img/clinics/clinic-1.jpg" {% endcomment %}
               <img
                 class="card-img-top"
-                src={{ listing.photo_main.url }}
+                src="{{ listing.photo_main.url }}"
                 alt=""
               />
               <div class="card-img-overlay">
