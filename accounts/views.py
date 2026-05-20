@@ -22,8 +22,7 @@ def register(request):
                     user = User.objects.create_user(username=username, email=email.lower(), password=password, first_name=first_name, last_name=last_name)
                     user.save()
                     messages.success(request,"User created")
-            # need to change later on
-            return redirect("accounts:register")
+            return redirect("accounts:login")
         else:
             messages.error(request,"Password do not match")
             return redirect("accounts:register")
@@ -41,11 +40,13 @@ def login(request):
             return redirect("listings:index")
         else:
             messages.error(request, "Invalid credentials")
-            return redirect("accounts:login")
+            return redirect("accounts:dashboard")
     return render(request, "accounts/login.html")
 
 def logout(request):
-    return render(request, "accounts/logout.html")
+    if request.method == "POST":
+        auth.logout(request)
+        return redirect("pages:index")
 
 def dashboard(request):
     return render(request, 'accounts/dashboard.html')

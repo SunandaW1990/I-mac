@@ -38,14 +38,14 @@ def search(request):
         room_type = request.GET['room_type']
         if room_type:
             queryset_list = queryset_list.filter(room_type__iexact=room_type)
-    paginator = Paginator(queryset_list, 3)
+    paginator = Paginator(queryset_list,3)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
     context = {
-        "listings": paged_listings, 
-        "district_choices":district_choices, 
-        "room_type_choices":room_type_choices, 
-        "rooms_choices":rooms_choices, 
-        "values":request.GET,
+        "listings" : paged_listings, 
+        "district_choices" : district_choices, 
+        "room_type_choices" : room_type_choices, 
+        "rooms_choices" : rooms_choices, 
+        "values" : request.GET,
     }
     return render(request, "listings/search.html", context)
